@@ -29,9 +29,9 @@ router.route("/current_user").get(tokenValidation, getCurrentUserInfo)
 
 // router.route("/user/setlocation").post(setLocation).get(getLocation)
 
-router.route('/order').post(addToCart)
-router.route("/order/:userid").get(userCartItems)
-router.route("/checkout").get(placeOrder)
+router.route('/order').post(tokenValidation,addToCart)
+router.route("/order/:userid").get(tokenValidation,userCartItems)
+router.route("/checkout").get(tokenValidation,placeOrder)
 // router.route('/order/checkout').post(calculateTotal).
 
 

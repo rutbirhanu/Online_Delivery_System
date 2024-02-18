@@ -8,7 +8,8 @@ const userModel = require("../model/userModel");
 
 const addToCart = async (req, res) => {
     try {
-        const { user_id, location, orderItems } = req.body;
+        const { location, orderItems } = req.body;
+        const {user_id}=req.user
 
         const orderItemList = await Promise.all(orderItems.map(async items => {
             let newOrderItems = new orderItemModel({ item_id: items.item_id, quantity: items.quantity });
@@ -89,8 +90,8 @@ const placeOrder = async (req, res) => {
 
 const userCartItems = async (req, res) => {
     try {
-        const { userid } = req.params
-        const cartItems = await orderModel.find({ user_id: userid }).populate({ path: 'orderItems', populate: 'item_id' })
+        const { user_id } = req.user
+        const cartItems = await orderModel.find({_id: user_id }).populate({ path: 'orderItems', populate: 'item_id' })
         res.json(cartItems)
 
     }
