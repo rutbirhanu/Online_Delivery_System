@@ -8,7 +8,8 @@ const userModel = require("../model/userModel");
 
 const addToCart = async (req, res) => {
     try {
-        const { user_id, location, orderItems } = req.body;
+        const { location, orderItems } = req.body;
+        const {user_id}=req.user
 
         const orderItemList = await Promise.all(orderItems.map(async items => {
             let newOrderItems = new orderItemModel({ item_id: items.item_id, quantity: items.quantity });
@@ -17,7 +18,7 @@ const addToCart = async (req, res) => {
         }));
 
         // Extract item_ids from orderItems
-        const itemIds = orderItems.map(item => item.item_id);
+        const itemIds = orderItemList.map(item => item.item_id);
 
         // Retrieve prices for all items at once
         const itemPrices = await menuModel.find({ _id: { $in: itemIds } }).select('price');
@@ -90,7 +91,7 @@ const placeOrder = async (req, res) => {
 const userCartItems = async (req, res) => {
     try {
         const { userid } = req.params
-        const cartItems = await orderModel.find({ user_id: userid }).populate({ path: 'orderItems', populate: 'item_id' })
+        const cartItems = await orderModel.find({ user_id: userid }).populate({ path: 'orderItems', populate: 'item_id' }).sort('orderDate')
         res.json(cartItems)
 
     }

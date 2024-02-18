@@ -3,11 +3,12 @@ const menuModel = require("../model/menuModel")
 const orderModel=require("../model/orderModel")
 const cloudinary = require("cloudinary").v2
 const multer = require('multer');
+require("dotenv").config()
 
 cloudinary.config({
-    cloud_name: "dqdhs44nq",
-    api_key: "544857432499217",
-    api_secret: "MYbbMctHshdYR_3ELvkDpJLQx8o"
+    cloud_name: process.env_CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret:process.env.API_SECRET
 })
 
 
@@ -42,7 +43,7 @@ const deleteItemFromMenu = async (req, res) => {
 
 const getAllOrder = async (req, res) => {
     try {
-        const userPopulated = await orderModel.find().populate("user_id",["name","email","phone"])
+        const userPopulated = await orderModel.find().populate("user_id",["name","email","phone"]).sort('')
         res.json(userPopulated)
     }
     catch (err) {
