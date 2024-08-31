@@ -1,7 +1,6 @@
 # Online_Delivery_System
 
-This repository contains the backend for an online delivery system. The backend is built with Node.js and includes various features such as payment integration with Chapa, geolocation for capturing the user's current location, and user authentication.
-
+This repository contains the backend for an online delivery system, developed using Node.js. It serves as the core infrastructure for managing user interactions, processing orders, and ensuring seamless integration with external services such as payment gateways and geolocation APIs. The backend is designed to support the operational needs of an online delivery platform, providing a secure and efficient foundation for handling various tasks related to user management, order processing, and delivery logistics.
 
 ## Features
 -  User Authentication: Secure user registration and login with JWT-based authentication.
