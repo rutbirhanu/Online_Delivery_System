@@ -1,11 +1,11 @@
 # Online_Delivery_System
 
-This repository contains the backend for an online delivery system, developed using Node.js. It serves as the core infrastructure for managing user interactions, processing orders, and ensuring seamless integration with external services such as payment gateways and geolocation APIs. The backend is designed to support the operational needs of an online delivery platform, providing a secure and efficient foundation for handling various tasks related to user management, order processing, and delivery logistics.
+Backend for an online delivery system, developed using Node.js. It serves as the core infrastructure for managing user interactions, processing orders, and ensuring seamless integration with external services such as payment gateways and geolocation APIs. The backend is designed to support the operational needs of an online delivery platform, providing a secure and efficient foundation for handling various tasks related to user management, order processing, and delivery logistics.
 
 ## Features
 -  User Authentication: Secure user registration and login with JWT-based authentication.
 -  Payment Integration: Integrated with Chapa for processing payments.
--  Geolocation: Captures the user's current location to provide accurate delivery services.
+-  Geolocation: Captures the user's current location to provide accurate delivery services (Mapbox).
 -  Order Management: Handles order creation, updating, and tracking.
 -  Delivery Management: Manages delivery routes, status updates.
 
