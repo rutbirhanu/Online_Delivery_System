@@ -5,7 +5,7 @@ An online delivery system, developed using Node.js. It serves as the core infras
 ## Features
 -  User Authentication: Secure user registration and login with JWT-based authentication.
 -  Payment Integration: Integrated with Chapa for processing payments.
--  Geolocation: Captures the user's current location to provide accurate delivery services (Mapbox).
+-  Geolocation: Captures the user's current location.
 -  Order Management: Handles order creation, updating, and tracking.
 -  Delivery Management: Manages delivery routes, status updates.
 
